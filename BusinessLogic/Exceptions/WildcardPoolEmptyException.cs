@@ -1,6 +1,6 @@
 ﻿namespace BusinessLogic.Exceptions
 {
-    internal class WildcardPoolEmptyException : Exception
+    public class WildcardPoolEmptyException : Exception
     {
     }
 }

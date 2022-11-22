@@ -2,9 +2,10 @@
 
 namespace BusinessLogic.Models
 {
-    internal class RoleAssignment
+    public class RoleAssignment
     {
-        internal Player Player { get; set; }
-        internal Role Role { get; set; }
+        public Player Player { get; set; }
+
+        public Role Role { get; set; }
     }
 }
