@@ -1,24 +1,28 @@
 ﻿using BusinessLogic;
+using Microsoft.Extensions.Configuration;
+using Parsing;
+using System.Speech.Synthesis;
 
 var roleAssignmentGenerator = new RoleAssignmentGenerator();
 
-string? line;
+var config = new ConfigurationBuilder()
+    .SetBasePath(Directory.GetCurrentDirectory())
+    .AddJsonFile("appsettings.json", optional: false)
+    .Build();
 
-var players = new List<string>();
-bool isNotSpace;
+var parser = new Parser(config);
 
-do
-{
-    line = Console.ReadLine();
+//var roleAssignments = roleAssignmentGenerator.GenerateRoleAssignments(
+//    players,
+//    gameMode);
 
-    isNotSpace = !string.IsNullOrWhiteSpace(line);
+var speech = new SpeechSynthesizer();
 
-    if (!isNotSpace)
-    {
-        players.Add(line!.Trim());
-    }
-} while (!isNotSpace);
+speech.SpeakAsync("Everyone put your hands in the middle and go to sleep.");
+
+await Task.Delay(2000);
+
+speech.SpeakAsync("Spies, wake up and put your thumbs up.");
 
 // TODO literally everything TBH
 
-// roleAssignmentGenerator.GenerateRoleAssignments()
