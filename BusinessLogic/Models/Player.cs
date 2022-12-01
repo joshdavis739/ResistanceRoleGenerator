@@ -2,7 +2,14 @@
 {
     public class Player
     {
-        public Guid Id { get; set; }
-        public string Name { get; set; }
+        public Player(string name)
+        {
+            Name = name;
+            Id = Guid.NewGuid();
+        }
+
+        public Guid Id { get; }
+
+        public string Name { get; }
     }
 }

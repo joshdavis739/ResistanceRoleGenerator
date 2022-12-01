@@ -1,6 +1,6 @@
 ﻿namespace BusinessLogic.Exceptions
 {
-    internal class InvalidNumberOfPlayersException : Exception
+    public class InvalidNumberOfPlayersException : Exception
     {
     }
 }
