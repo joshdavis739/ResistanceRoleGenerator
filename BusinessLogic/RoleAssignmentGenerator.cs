@@ -29,11 +29,7 @@ namespace BusinessLogic
 
             var directRoleAssignments = playersToAssignRoleDirectlyTo
                 .Zip(gameMode.Roles)
-                .Select(x => new RoleAssignment
-                {
-                    Player = x.First,
-                    Role = x.Second
-                });
+                .Select(x => new RoleAssignment(x.First, x.Second));
 
             var playersToAssignRoleToFromWildcardPool = randomizedPlayerList.Skip(gameMode.Roles.Count);
 
@@ -44,11 +40,7 @@ namespace BusinessLogic
                         .Randomize(gameMode.WildcardPool)
                         .First();
 
-                    return new RoleAssignment
-                    {
-                        Player = x,
-                        Role = wildcard
-                    };
+                    return new RoleAssignment(x, wildcard);
                 });
 
             return directRoleAssignments.Concat(wildcardRoleAssignments).ToArray();

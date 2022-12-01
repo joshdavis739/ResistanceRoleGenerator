@@ -4,8 +4,16 @@ namespace BusinessLogic.Models
 {
     public class RoleAssignment
     {
-        public Player Player { get; set; }
+        public RoleAssignment(
+            Player player,
+            Role role)
+        {
+            Player = player;
+            Role = role;
+        }
 
-        public Role Role { get; set; }
+        public Player Player { get; }
+
+        public Role Role { get; }
     }
 }
